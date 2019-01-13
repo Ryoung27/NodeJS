@@ -8,4 +8,6 @@ let user = os.userInfo();
 
 // console.log(user.username);
 
-fs.appendFileSync('greetings.txt', 'Hello ' + user.username + "!");
+// fs.appendFileSync('greetings.txt', 'Hello ' + user.username + "!");
+
+fs.appendFileSync('greeting.txt', `Hello ${user.username}!`);
