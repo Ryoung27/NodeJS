@@ -15,3 +15,7 @@ module.exports.addition = (x, y) => {
 module.exports.subtraction = (x, y) => {
     return x - y;
 }
+
+module.exports.division = (x, y) => {
+    return x / y;
+}

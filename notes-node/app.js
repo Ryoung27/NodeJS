@@ -10,6 +10,8 @@ console.log(finalProduct);
 
 console.log(notes.subtraction(4, 1));
 
+console.log(notes.division(20, 5));
+
 // let res = notes.addNote();
 // console.log(res);
 
