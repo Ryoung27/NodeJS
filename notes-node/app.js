@@ -6,12 +6,19 @@ const os = require('os');
 const _ = require('lodash');
 const notes= require('./notes.js');
 
-let finalProduct = notes.addition(3, 4);
-console.log(finalProduct);
+let filterArray = _.uniq(["Ronnie", "Ronnie", "Richard", "Richard", "Young", "Young"])
 
-console.log(notes.subtraction(4, 1));
+console.log(_.isString(true));
+console.log(_.isString("Ronnie"));
+console.log(_.uniq("RonnieRonnie RichardRichard YoungYoung"))
+console.log(filterArray);
 
-console.log(notes.division(20, 5));
+// let finalProduct = notes.addition(3, 4);
+// console.log(finalProduct);
+
+// console.log(notes.subtraction(4, 1));
+
+// console.log(notes.division(20, 5));
 
 // let res = notes.addNote();
 // console.log(res);
