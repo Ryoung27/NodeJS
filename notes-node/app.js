@@ -1,8 +1,9 @@
-console.log("Starting app.");
+console.log("Starting app.js.");
 
 //Require lets us load in module functionality.
 const fs = require('fs');
 const os = require('os');
+const notes= require('./notes.js');
 
 let user = os.userInfo();
 
