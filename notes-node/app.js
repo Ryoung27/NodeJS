@@ -6,7 +6,7 @@ const os = require('os');
 const _ = require('lodash');
 const notes= require('./notes.js');
 
-let filterArray = _.uniq(["Ronnie", "Ronnie", "Richard", "Richard", "Young", "Young"])
+let filterArray = _.uniq(["Ronnie", "Ronnie", "Richie", "Richard", "Richard", "Young", "Young"])
 
 console.log(_.isString(true));
 console.log(_.isString("Ronnie"));
