@@ -11,3 +11,7 @@ module.exports.addNote = () => {
 module.exports.addition = (x, y) => {
     return x + y;
 }
+
+module.exports.subtraction = (x, y) => {
+    return x - y;
+}

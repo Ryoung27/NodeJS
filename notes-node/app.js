@@ -8,6 +8,8 @@ const notes= require('./notes.js');
 let finalProduct = notes.addition(3, 4);
 console.log(finalProduct);
 
+console.log(notes.subtraction(4, 1));
+
 // let res = notes.addNote();
 // console.log(res);
 
