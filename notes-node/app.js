@@ -3,6 +3,7 @@ console.log("Starting app.js.");
 //Require lets us load in module functionality.
 const fs = require('fs');
 const os = require('os');
+const _ = require('lodash');
 const notes= require('./notes.js');
 
 let finalProduct = notes.addition(3, 4);
