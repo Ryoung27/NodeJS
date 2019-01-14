@@ -5,8 +5,11 @@ const fs = require('fs');
 const os = require('os');
 const notes= require('./notes.js');
 
-let res = notes.addNote();
-console.log(res);
+let finalProduct = notes.addition(3, 4);
+console.log(finalProduct);
+
+// let res = notes.addNote();
+// console.log(res);
 
 // let user = os.userInfo();
 

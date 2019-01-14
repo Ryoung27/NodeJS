@@ -7,3 +7,7 @@ module.exports.addNote = () => {
     console.log('addNote');
     return 'New Note';
 }
+
+module.exports.addition = (x, y) => {
+    return x + y;
+}
