@@ -11,7 +11,7 @@ let user = os.userInfo();
 
 // fs.appendFileSync('greetings.txt', 'Hello ' + user.username + "!");
 
-fs.appendFileSync('test.txt', `Hello ${user.username}!`);
+fs.appendFileSync('test.txt', `Hello ${user.username}. You are ${notes.age}!`);
 // fs.appendFileSync('testapp.js', console.log("It worked!"));
 
 // node testapp.js;
