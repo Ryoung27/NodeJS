@@ -4,8 +4,23 @@ let addNote = (title, body) => {
     console.log('Adding note', title, body)
 };
 
+let getAll = () => {
+    console.log('Getting all notes');
+}
+
+let getNote = (title) => {
+    console.log('Getting all: ');
+}
+
+let removeNote = (title) => {
+    console.log('Removing note: ');
+}
+
 module.exports = {
-    addNote: addNote
+    addNote: addNote,
+    getAll: getAll,
+    getNote: getNote,
+    removeNote: removeNote
 };
 
 // console.log(module);
