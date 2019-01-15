@@ -2,16 +2,31 @@ console.log("Starting app.js.");
 
 //Require lets us load in module functionality.
 const fs = require('fs');
-const os = require('os');
+// const os = require('os');
 const _ = require('lodash');
 const notes= require('./notes.js');
 
-let filterArray = _.uniq(["Ronnie", "Ronnie", "Richie", "Richard", "Richard", "Young", "Young"])
+let command = process.argv[2];
+console.log('Command: ', command);
 
-console.log(_.isString(true));
-console.log(_.isString("Ronnie"));
-console.log(_.uniq("RonnieRonnie RichardRichard YoungYoung"))
-console.log(filterArray);
+if (command === 'add'){
+    console.log('Adding new note');
+} else if (command === 'list'){
+    console.log('Listing all notes');
+} else if (command === 'fetch'){
+    console.log('Fetching note');
+} else if (commmand === 'delete'){
+    console.log('Removing note.');
+}else {
+    console.log('Command not found.');
+}
+
+// let filterArray = _.uniq(["Ronnie", "Ronnie", "Richie", "Richard", "Richard", "Young", "Young"])
+
+// console.log(_.isString(true));
+// console.log(_.isString("Ronnie"));
+// console.log(_.uniq("RonnieRonnie RichardRichard YoungYoung"))
+// console.log(filterArray);
 
 // let finalProduct = notes.addition(3, 4);
 // console.log(finalProduct);
