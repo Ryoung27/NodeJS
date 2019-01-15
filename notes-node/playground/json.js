@@ -18,12 +18,12 @@ let originalNote = {
 }
 
 let originalNoteString = JSON.stringify(originalNote);
-console.log(typeof originalNoteString);
-console.log(originalNoteString);
+// console.log(typeof originalNoteString);
+// console.log(originalNoteString);
 
-fs.appendFileSync('notes.json', originalNoteString);
+fs.writeFileSync('notes.json', originalNoteString);
 
 let noteString = fs.readFileSync('notes.json');
-// fs.appendFileSync('greetings.txt', 'Hello ' + user.username + "!");
+let note = JSON.parse(noteString);
 console.log(typeof note);
 console.log(note.title);
