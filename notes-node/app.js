@@ -13,11 +13,11 @@ if (command === 'add'){
     console.log('Adding new note');
 } else if (command === 'list'){
     console.log('Listing all notes');
-} else if (command === 'fetch'){
+} else if (command === 'read'){
     console.log('Fetching note');
-} else if (commmand === 'delete'){
+} else if (command === 'remove'){
     console.log('Removing note.');
-}else {
+} else {
     console.log('Command not found.');
 }
 
