@@ -43,17 +43,12 @@ let getNote = (title) => {
 let removeNote = (title) => {
     //fetch notes
     let notes = fetchNotes();
-    let note = {
-        title: title
-    };
     // filter out notes, removing the one with title of argument.
-    let removeNotes = notes.filter((note) => note.title === title);
+    let filteredNotes = notes.filter((note) => note.title !== title);
     //save new notes array.
-    if (removeNotes.length != 0){
-        notes.pop(note);
-        saveNotes(notes);
-        return note;
-    };
+    saveNotes(filteredNotes);
+
+    return notes.length !== filteredNotes.length;
 }
 
 module.exports = {
