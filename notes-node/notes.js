@@ -1,12 +1,15 @@
 console.log("Starting notes.js");
 
+const fs = require('fs');
+
 let addNote = (title, body) => {
     let notes = [];
     let note = {
         title: title,
         body: body
     };
-    notes.push()
+    notes.push(note);
+    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
 
 let getAll = () => {
