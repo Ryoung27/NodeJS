@@ -1,5 +1,3 @@
-console.log("Starting app.js.");
-
 //Require lets us load in module functionality.
 const fs = require('fs');
 // const os = require('os');
@@ -8,10 +6,30 @@ const yargs = require('yargs');
 const notes= require('./notes.js');
 
 
-const argv = yargs.argv;
+const argv = yargs
+            .command('add', 'Add a new note.', {
+                title:{
+                    describe: 'Title of note.',
+                    demand: true,
+                    alias: 't'
+                },
+                body:{
+                    describe: 'Body information.',
+                    demand: true,
+                    alias: 'b'
+                }
+            })
+            .command('list', 'List all notes.')
+            .command('read', 'Read a note.', {
+                title: {
+                    describe: 'Title of note',
+                    demand: true,
+                    alias: 'r'
+                },
+            })
+            .help()
+            .argv;
 let command = argv._[0];
-console.log('Command: ', command);
-console.log('Yargs', argv);
 
 
 if (command === 'add'){
@@ -23,7 +41,9 @@ if (command === 'add'){
        console.log("Note title taken.");
    }
 } else if (command === 'list'){
-    notes.getAll();
+    let allNotes = notes.getAll();
+    console.log(`Printing ${allNotes.length} note(s).`);
+    allNotes.forEach((note) => notes.logNote(note));
 } else if (command === 'read'){
     let note = notes.getNote(argv.title);
     if (note){
