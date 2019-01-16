@@ -9,8 +9,16 @@ let addNote = (title, body) => {
         body: body
     };
 
-    let notesString = fs.readFileSync('notes-data.json');
-    notes = JSON.parse(notesString);
+    try {
+        let notesString = fs.readFileSync('notes-data.json');
+        notes = JSON.parse(notesString);
+    } catch (e){
+
+    }
+
+    let duplicatNotes = notes.filter((note) => {
+        return note.title === title;
+    });
 
     notes.push(note);
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
