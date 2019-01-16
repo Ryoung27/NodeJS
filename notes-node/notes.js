@@ -9,7 +9,6 @@ let fetchNotes = () =>{
         return [];
     }
 };
-//test
 let saveNotes = (notes) =>{
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
