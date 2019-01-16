@@ -16,13 +16,15 @@ let addNote = (title, body) => {
 
     }
 
-    let duplicatNotes = notes.filter((note) => {
-        return note.title === title;
-    });
+    let duplicateNotes = notes.filter((note) => note.title === title);
 
-    notes.push(note);
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
-};
+    if (duplicateNotes.length === 0){
+        notes.push(note);
+        fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    };
+    }
+
+
 
 let getAll = () => {
     console.log('Getting all notes');
