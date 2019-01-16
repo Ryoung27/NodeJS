@@ -15,7 +15,12 @@ console.log('Yargs', argv);
 
 
 if (command === 'add'){
-    notes.addNote(argv.title, argv.body);
+   let note = notes.addNote(argv.title, argv.body);
+   if (note === undefined){
+       console.log("This note already exists.")
+   } else{
+       console.log(argv.title + " has been added to the list.")
+   }
 } else if (command === 'list'){
     notes.getAll();
 } else if (command === 'read'){
