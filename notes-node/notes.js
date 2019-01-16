@@ -28,7 +28,7 @@ let addNote = (title, body) => {
         saveNotes(notes);
         return note;
     };
-    }
+}
 
 
 
@@ -37,8 +37,11 @@ let getAll = () => {
 }
 
 let getNote = (title) => {
-    console.log('Getting all: ', title);
-}
+    let notes = fetchNotes();
+
+    let filteredNotes = notes.filter((note) => note.title === title);
+    return filteredNotes[0];
+};
 
 let removeNote = (title) => {
     //fetch notes
