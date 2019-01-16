@@ -1,7 +1,12 @@
 console.log("Starting notes.js");
 
 let addNote = (title, body) => {
-    console.log('Adding note', title, body)
+    let notes = [];
+    let note = {
+        title: title,
+        body: body
+    };
+    notes.push()
 };
 
 let getAll = () => {
