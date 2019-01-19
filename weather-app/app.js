@@ -13,8 +13,14 @@ const argv = yargs.options({
 
 console.log(argv);
 
+// encodeURIComponent('text here to incode');
+// decodeURIComponent('test%20here')
+
+let encodedAddress = encodeURIComponent(argv.a);
+
+
 request({
-    url: 'http://www.mapquestapi.com/geocoding/v1/address?key=iHhgGZRvXgkFaYXTtz9G8SY6WfePes81&location=1301%20lombard%20street%20philadelphia',
+    url: `http://www.mapquestapi.com/geocoding/v1/address?key=iHhgGZRvXgkFaYXTtz9G8SY6WfePes81&location=${encodedAddress}`,
     json: true
 }, (error, response, body) =>{
 
