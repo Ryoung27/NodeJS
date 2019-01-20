@@ -11,7 +11,7 @@ const argv = yargs.options({
     }
 }).help().alias('help', 'h').argv;
 
-console.log(argv);
+// console.log(argv);
 
 // encodeURIComponent('text here to incode');
 // decodeURIComponent('test%20here')
