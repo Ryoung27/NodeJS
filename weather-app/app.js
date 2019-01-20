@@ -23,7 +23,11 @@ request({
     url: `http://www.mapquestapi.com/geocoding/v1/address?key=iHhgGZRvXgkFaYXTtz9G8SY6WfePes81&location=${encodedAddress}`,
     json: true
 }, (error, response, body) =>{
-
+    if (error){
+        console.log('Unable to connect to Google Servers.');
+    } else if ( === 0) { //This needs to be different due to different api.
+        console.log('Unable to find that address.')
+    }
     console.log(`Address: ${body.results[0].locations[0].street}`);
     console.log(`Latitude: ${body.results[0].locations[0].latLng.lat}`);
     console.log(`Longitude: ${body.results[0].locations[0].latLng.lng}`);
