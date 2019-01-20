@@ -27,9 +27,11 @@ request({
         console.log('Unable to connect to Google Servers.');
     } else if ( === 0) { //This needs to be different due to different api.
         console.log('Unable to find that address.')
+    } else if () { //This needs to be fixed for current api.
+        console.log(`Address: ${body.results[0].locations[0].street}`);
+        console.log(`Latitude: ${body.results[0].locations[0].latLng.lat}`);
+        console.log(`Longitude: ${body.results[0].locations[0].latLng.lng}`);
     }
-    console.log(`Address: ${body.results[0].locations[0].street}`);
-    console.log(`Latitude: ${body.results[0].locations[0].latLng.lat}`);
-    console.log(`Longitude: ${body.results[0].locations[0].latLng.lng}`);
+
 
 });
