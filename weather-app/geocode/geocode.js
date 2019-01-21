@@ -1,4 +1,15 @@
+const request = require('request');
+
 const fs = require('fs');
+
+const argv = yargs.options({
+    a: {
+        demand: true,
+        alias: "address",
+        describe: "Address to fetch weather.",
+        string: true
+    }
+}).help().alias('help', 'h').argv;
 
 let geocodeAddress = (argv.a) =>{
     let encodedAddress = encodeURIComponent(argv.a);
