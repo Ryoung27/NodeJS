@@ -2,7 +2,7 @@ const request = require('request');
 
 
 
-let geocodeAddress = (address) => {
+let geocodeAddress = (address, callback) => {
     let encodedAddress = encodeURIComponent(address);
 
 
@@ -13,7 +13,8 @@ let geocodeAddress = (address) => {
 
         // console.log(body);
         if (error){
-            console.log('Unable to connect to Google Servers.');
+            callback('Unable to connect to server');
+            // console.log('Unable to connect to Google Servers.');
         } else if (body.results[0].locations[0].street === "") { //This was fixed for mapquest api.
             console.log('Unable to find that address.')
         } else if (body.results[0].locations[0].street) { //This needs to be fixed for current api.
