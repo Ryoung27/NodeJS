@@ -23,7 +23,7 @@ let geocodeAddress = (address, callback) => {
                 address: body.results[0].locations[0].street,
                 latitude: body.results[0].locations[0].latLng.lat,
                 longitude: body.results[0].locations[0].latLng.lng
-            })
+            });
             // console.log(`Address: ${body.results[0].locations[0].street}`);
             // console.log(`Latitude: ${body.results[0].locations[0].latLng.lat}`);
             // console.log(`Longitude: ${body.results[0].locations[0].latLng.lng}`);
