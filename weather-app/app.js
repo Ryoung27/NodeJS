@@ -1,32 +1,45 @@
-// const yargs = require('yargs')
-// const geocode = require('./geocode/geocode')
+const yargs = require('yargs')
+const geocode = require('./geocode/geocode')
 
-// const argv = yargs.options({
-//     a: {
-//         demand: true,
-//         alias: "address",
-//         describe: "Address to fetch weather.",
-//         string: true
-//     }
-// }).help().alias('help', 'h').argv;
+const weather = require('./weather/weather')
 
-// // console.log(argv);
+const argv = yargs.options({
+    a: {
+        demand: true,
+        alias: "address",
+        describe: "Address to fetch weather.",
+        string: true
+    }
+}).help().alias('help', 'h').argv;
 
-// // encodeURIComponent('text here to incode');
-// // decodeURIComponent('test%20here')
+// console.log(argv);
+
+// encodeURIComponent('text here to incode');
+// decodeURIComponent('test%20here')
 
 
-// geocode.geocodeAddress(argv.address, (errorMessage, results) => {
-//     if (errorMessage){
-//         console.log(errorMessage);
-//     } else{
-//         console.log(JSON.stringify(results, undefined, 2));
-//     }
-// });
+geocode.geocodeAddress(argv.address, (errorMessage, results) => {
+    if (errorMessage){
+        console.log(errorMessage);
+    } else{
+        console.log(JSON.stringify(results, undefined, 2));
+    }
+});
 
-//API Key 8691e730fc26412960eaba6814fdedbe
-// https://api.darksky.net/forecast/[key]/[latitude],[longitude]
-// Forecast information address: https://api.darksky.net/forecast/8691e730fc26412960eaba6814fdedbe/38.9117,-94.67237
+
+
+//lat
+//lng
+//callback, error and results
+weather.getWeather(lat, lng, (errorMessage, weatherResults) =>{
+    if (errorMessage){
+        console.log(errorMessage)
+    } else {
+        console.log(JSON.stringify(weatherResults, undefined, 2));
+    }
+});
+
+
 
 // const request = require('request')
 

@@ -1,17 +1,20 @@
 const request = require('request')
 
-let getWeather = (address, callback) => {
-    let encodedAddress = encodeURIComponent(address);
+let getWeather = (lat, lng, callback) => {
+    let encodedAddress = encodeURIComponent(lat, lng);
 
 
 
     request({
-        url:"https://api.darksky.net/forecast/8691e730fc26412960eaba6814fdedbe/38.9117,-94.67237",
+        url:`https://api.darksky.net/forecast/8691e730fc26412960eaba6814fdedbe/${lat},${lng}`,
         json: true}, (error, response, body) =>{
             if (!error && response.statusCode === 200){
-                console.log(body.currently.temperature);
+                callback(undefined,{
+                    temperature: body.currently.temperature,
+                    apparentTemperature: body.currently.apparentTemperature
+                })
             } else if (response.statusCode === 400){
-                console.log('Unable to fetch weather.')
+                callback('Unable to fetch weather.')
             }
         });
 };
