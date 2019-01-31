@@ -44,6 +44,14 @@ app.get('/about', (req,res) =>{
 
 })
 
+app.get('/maintance', (req,res) =>{
+    res.render('about.hbs', {
+        pageTitle: 'About Page',
+        currentYear: new Date().getFullYear()
+    });
+
+})
+
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: "Sorry baby, bad page design.",
