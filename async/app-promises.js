@@ -5,9 +5,23 @@ const users = [{
 }, {
     id: 2,
     name: "Kayla",
-    schoolId: 101
+    schoolId: 102
 }];
-const grades = [];
+const grades = [{
+    id: 1,
+    schoolId: 101,
+    grade: 86
+}, {
+    id: 2,
+    schoolId: 102,
+    grade: 100
+}, {
+    id: 3,
+    schoolId: 102,
+    grade: 100
+}
+
+];
 
 const getUser = (id) =>{
     return new Promise((resolve, reject) => {
@@ -21,8 +35,28 @@ const getUser = (id) =>{
         });
 };
 
-getUser(2).then((user) => {
-    console.log(user);
+const getGrades = (schoolId) =>{
+    return new Promise((resolve, reject) => {
+        resolve(grades.filter((grade) => grade.schoolId === schoolId));
+    });
+};
+
+const getStatus = (userId) => {
+    let user;
+    return getUser(userId).then((tempUser) => {
+        user = tempUser;
+        return getGrades(user.schoolId);
+    }).then((grades) => {
+        let average = 0;
+
+        if(grades.length > 0){
+            aerage = grades.map((grade) => grade.grade)
+        }
+    })
+};
+
+getStatus(102).then((statuss) => {
+    console.log(status);
 }).catch((e) => {
     console.log(e)
 })
