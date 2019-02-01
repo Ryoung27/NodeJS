@@ -12,8 +12,13 @@ let asyncAdd = (a, b) => {
 
 asyncAdd(1, 2).then((res) => {
     console.log('Result: ', res);
+    return asyncAdd(res, 33);
 }, (errorMessage) => {
     console.log(errorMessage);
+}).then((res) => {
+    console.log('Should be 36.', res)
+}, (errorMessage) => {
+    console.log(errorMessage)
 });
 
 // let somePromise = new Promise((resolve, reject) => {

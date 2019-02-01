@@ -50,12 +50,14 @@ const getStatus = (userId) => {
         let average = 0;
 
         if(grades.length > 0){
-            aerage = grades.map((grade) => grade.grade)
+            average = grades.map((grade) => grade.grade).reduce((a, b) => a + b) / grades.length;
         }
+        return `${user.name} has a ${average}% in the class.`;
+        console.log(average)
     })
 };
 
-getStatus(102).then((statuss) => {
+getStatus(2).then((status) => {
     console.log(status);
 }).catch((e) => {
     console.log(e)
