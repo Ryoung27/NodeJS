@@ -10,5 +10,9 @@ const users = [{
 const grades = [];
 
 const getUser = (id) =>{
-
-}
+    return new Promise((resolve, reject) => {
+        const user = users.find((user) => {
+            return user.id === id;
+        });
+    });
+};
