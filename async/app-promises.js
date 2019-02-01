@@ -11,16 +11,14 @@ const grades = [];
 
 const getUser = (id) =>{
     return new Promise((resolve, reject) => {
-        const user = users.find((user) => {
-            return user.id === id;
+        const user = users.find((user) => user.id === id);
 
             if(user){
-                resolve(User);
+                resolve(user);
             } else{
                 reject(`Unable to find user with id of ${id}.`);
             }
         });
-    });
 };
 
 getUser(2).then((user) => {
