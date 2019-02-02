@@ -59,8 +59,8 @@ const getStatus = (userId) => {
 // async await
 
 const getStatusAlt = async (userId) => {
-    const user = await getUser(userId);
-    const grades = await getGrades(user.schoolId);
+    let user = await getUser(userId);
+    let grades = await getGrades(user.schoolId);
     let average = 0;
 
     if (grades.length > 0) {
