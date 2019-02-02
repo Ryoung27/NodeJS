@@ -57,8 +57,12 @@ const getStatus = (userId) => {
     })
 };
 
-getStatus(2).then((status) => {
-    console.log(status);
-}).catch((e) => {
-    console.log(e)
-})
+const getStatusAlt = (userId) => {
+
+};
+
+// getStatus(2).then((status) => {
+//     console.log(status);
+// }).catch((e) => {
+//     console.log(e)
+// })
