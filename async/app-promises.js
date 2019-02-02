@@ -61,8 +61,15 @@ const getStatus = (userId) => {
 // async await
 
 const getStatusAlt = async (userId) => {
-    throw new Error('This is an error.');
-    return 'Richie';
+    // throw new Error('This is an error.');
+    // return 'Richie';
+    const user = await getUser(userId);
+    const grades = await getGrades(user.schoolId);
+    let average = 0;
+
+    if (grades.length > 0) {
+        average = grades.map((grade) => grade.grade).reduce((a, b) => a + b) / grades.length;
+    }
 };
 
 getStatusAlt().then((name) => {
