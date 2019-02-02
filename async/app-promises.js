@@ -26,7 +26,6 @@ const grades = [{
 const getUser = (id) =>{
     return new Promise((resolve, reject) => {
         const user = users.find((user) => user.id === id);
-
             if(user){
                 resolve(user);
             } else{
@@ -53,7 +52,6 @@ const getStatus = (userId) => {
             average = grades.map((grade) => grade.grade).reduce((a, b) => a + b) / grades.length;
         }
         return `${user.name} has a ${average}% in the class.`;
-        console.log(average)
     })
 };
 
@@ -61,8 +59,6 @@ const getStatus = (userId) => {
 // async await
 
 const getStatusAlt = async (userId) => {
-    // throw new Error('This is an error.');
-    // return 'Richie';
     const user = await getUser(userId);
     const grades = await getGrades(user.schoolId);
     let average = 0;
@@ -70,10 +66,12 @@ const getStatusAlt = async (userId) => {
     if (grades.length > 0) {
         average = grades.map((grade) => grade.grade).reduce((a, b) => a + b) / grades.length;
     }
+
+    return `$(user.name) has a ${average}% in the class.`;
 };
 
-getStatusAlt().then((name) => {
-    console.log(name);
+getStatusAlt().then((status) => {
+    console.log(status);
 }).catch((e) => {
     console.log(e);
 })
