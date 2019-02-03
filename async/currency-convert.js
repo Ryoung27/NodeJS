@@ -17,14 +17,9 @@ const getCountries = async (currencyCode) => {
 
 const convertCurrency = (from, to, amount) => {
     getExchangeRate(from, to).then((rate) => {
-        const convertedAmount = amount
+        const convertedAmount = (amount * rate).toFixed(2);
+        console.log(convertedAmount);
     });
 };
 
-getExchangeRate('USD', 'CAD').then((rate) => {
-    console.log(rate);
-});
-
-getCountries('EUR').then((countries) => {
-    console.log(countries)
-});
+convertCurrency('USD', 'CAD', 20);
