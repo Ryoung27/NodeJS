@@ -15,16 +15,23 @@ const getCountries = async (currencyCode) => {
     return response.data.map((country) => country.name);
 };
 
-const convertCurrency = (from, to, amount) => {
-    let convertedAmount;
-    getExchangeRate(from, to).then((rate) => {
-        convertedAmount = (amount * rate).toFixed(2);
-        console.log(convertedAmount);
-        return getCountries(to);
-    }).then((countries) => {
-        console.log(countries);
-        return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in these countries: ${countries.join(', ')}`;
-    });
-};
+// const convertCurrency = (from, to, amount) => {
+//     let convertedAmount;
+//     return getExchangeRate(from, to).then((rate) => {
+//         convertedAmount = (amount * rate).toFixed(2);
+//         return getCountries(to);
+//     }).then((countries) => {
+//         return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in these countries: ${countries.join(', ')}`;
+//     });
+// };
 
-convertCurrency('USD', 'CAD', 20);
+const convertCurrency = async (from, to, amount) => {
+    const rate = await getExchangeRate(from, to)
+    const countries = await getCountries(to)
+    const convertedAmount = (amount * rate).toFixed(2);
+    return `${amount} ${from} is worth ${convertedAmount} ${to}. You can spend it in these countries: ${countries.join(', ')}`;
+}
+
+convertCurrency('USD', 'CAD', 20).then((message) => {
+    console.log(message);
+});
