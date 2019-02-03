@@ -15,6 +15,12 @@ const getCountries = async (currencyCode) => {
     return response.data.map((country) => country.name);
 };
 
+const convertCurrency = (from, to, amount) => {
+    getExchangeRate(from, to).then((rate) => {
+        const convertedAmount = amount
+    });
+};
+
 getExchangeRate('USD', 'CAD').then((rate) => {
     console.log(rate);
 });
